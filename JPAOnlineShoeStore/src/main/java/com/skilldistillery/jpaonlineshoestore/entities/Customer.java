@@ -36,7 +36,7 @@ public class Customer {
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	Customer(){
+	public Customer(){
 	}
 
 	public int getId() {
