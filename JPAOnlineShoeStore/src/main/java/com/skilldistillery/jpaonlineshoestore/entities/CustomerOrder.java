@@ -14,8 +14,8 @@ import jakarta.persistence.Table;
 // this is for the user
 
 @Entity
-@Table(name = "order")
-public class Order {
+@Table(name = "customer_order")
+public class CustomerOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -27,7 +27,7 @@ public class Order {
 	private String confirmationNumber;
 	
 	
-	Order(){
+	CustomerOrder(){
 	}
 
 
@@ -61,7 +61,7 @@ public class Order {
 	}
 
 
-	public Order(int id, LocalDate date, String confirmationNumber) {
+	public CustomerOrder(int id, LocalDate date, String confirmationNumber) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -89,7 +89,7 @@ public class Order {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Order other = (Order) obj;
+		CustomerOrder other = (CustomerOrder) obj;
 		return id == other.id;
 	}
 	
