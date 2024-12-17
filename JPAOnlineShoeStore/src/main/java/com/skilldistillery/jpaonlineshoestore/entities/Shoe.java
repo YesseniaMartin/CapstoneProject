@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 // this is for the user
@@ -21,11 +23,13 @@ public class Shoe {
 	@Column(name = "price")
 	private double price;
 	
-	@Column(name = "type_id")
-	private int type;
+	@ManyToOne
+	@JoinColumn(name = "type_id")
+	private Kind type; // Map to the kind table
 	
-	@Column(name = "brand_id")
-	private int brand;
+	@ManyToOne
+	@JoinColumn(name = "brand_id")
+	private Brand brand;
 	
 	Shoe(){
 	}
@@ -46,27 +50,21 @@ public class Shoe {
 		this.price = price;
 	}
 
-	public int getType() {
+	
+
+	public Kind getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(Kind type) {
 		this.type = type;
 	}
 
-	public int getBrand() {
+	public Brand getBrand() {
 		return brand;
 	}
 
-	public void setBrand(int brand) {
-		this.brand = brand;
-	}
-
-	public Shoe(int id, double price, int type, int brand) {
-		super();
-		this.id = id;
-		this.price = price;
-		this.type = type;
+	public void setBrand(Brand brand) {
 		this.brand = brand;
 	}
 

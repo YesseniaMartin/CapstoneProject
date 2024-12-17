@@ -1,13 +1,19 @@
 package com.skilldistillery.jpaonlineshoestore.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
 @Entity
 @Table(name="inventory_item")
 public class InventoryItem {
@@ -19,22 +25,17 @@ public class InventoryItem {
 	
 	private double size;
 	
-	@Column(name="shoe_id")
-	private int shoeId;
+	@ManyToOne
+	@JoinColumn(name="shoe_id")
+	private Shoe shoeId;
 	
-	
+	@ManyToMany
+	@JoinTable(name="cart_has_inventory_item", 
+	joinColumns = @JoinColumn(name="inventory_item_id"),
+	inverseJoinColumns = @JoinColumn(name="cart_id"))
+	private List<Cart> carts;
 
-	public InventoryItem(int id, String color, double size, int shoeId) {
-		super();
-		this.id = id;
-		this.color = color;
-		this.size = size;
-		this.shoeId = shoeId;
-	}
-
-	public InventoryItem() {
-		super();
-	}
+	public InventoryItem() {}
 
 	public int getId() {
 		return id;
@@ -60,14 +61,46 @@ public class InventoryItem {
 		this.size = size;
 	}
 
-	public int getShoeId() {
+	
+
+	public Shoe getShoeId() {
 		return shoeId;
 	}
 
-	public void setShoeId(int shoeId) {
+	public void setShoeId(Shoe shoeId) {
 		this.shoeId = shoeId;
 	}
+	
+	
 
+	public List<Cart> getCarts() {
+		return carts;
+	}
+
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
+	}
+
+	
+	
+	public void addCart(Cart cart) {
+		if (carts == null) {
+			carts = new ArrayList<>();
+		}
+		if (!carts.contains(cart)) {
+			carts.add(cart);
+			cart.addInventoryItem(this);
+		}
+	}
+	
+	public void removeCart(Cart cart) {
+		if (carts != null && carts.contains(cart)) {
+			carts.remove(cart);
+			cart.removeInventoryItem(this);
+		}
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

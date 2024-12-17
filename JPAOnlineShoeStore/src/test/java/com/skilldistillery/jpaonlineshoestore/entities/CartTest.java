@@ -48,5 +48,31 @@ class CartTest {
 		assertEquals(1, cart.getId());
 		
 	}
+	
+	@Test
+	void test_Cart_ManyToMany_InventoryItem() {
+		assertNotNull(cart);
+		assertEquals(1, cart.getId());
+		
+		assertTrue(cart.getInventoryItems().size() > 0);
+	}
+	
+	@Test
+	void test_Cart_OneToOne_Customer() {
+		assertNotNull(cart);
+		assertEquals(1, cart.getId());
+		
+		assertEquals("John", cart.getCustomer().getFirstName());
+		assertEquals("Doe", cart.getCustomer().getLastName());
+	}
+	
+	@Test
+	void test_Cart_OneToOne_CustomerOrder() {
+		assertNotNull(cart);
+		assertEquals(1, cart.getId());
+		
+		assertEquals("CONF123456", cart.getOrder().getConfirmationNumber());
+		assertEquals(2024, cart.getOrder().getDate().getYear());
+	}
 
 }
