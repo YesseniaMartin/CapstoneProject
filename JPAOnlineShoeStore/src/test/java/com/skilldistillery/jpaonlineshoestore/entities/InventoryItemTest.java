@@ -2,6 +2,7 @@ package com.skilldistillery.jpaonlineshoestore.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -47,8 +48,27 @@ class InventoryItemTest {
 	void test_InventoryItem_basic_mapping() {
 		assertNotNull(inventoryItem);
 		assertEquals("Green", inventoryItem.getColor());
-		
 	
 	}
+	
+	@Test
+	void test_InventoryItem_ManyToOne_Shoe() {
+		assertNotNull(inventoryItem);
+		assertEquals("Green", inventoryItem.getColor());
+		
+		assertEquals("Oxfords", inventoryItem.getShoeId().getBrand().getName());
+		
+	}
+	
+	@Test
+	void test_InventoryItem_ManyToMany_Cart() {
+		assertNotNull(inventoryItem);
+		assertEquals("Green", inventoryItem.getColor());
+		
+		assertTrue(inventoryItem.getCarts().size() > 0);
+		
+	}
+	
+	
 
 }

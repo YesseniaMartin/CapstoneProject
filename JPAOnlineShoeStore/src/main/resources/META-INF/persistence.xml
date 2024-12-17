@@ -6,9 +6,9 @@
   <class>com.skilldistillery.jpaonlineshoestore.entities.Brand</class> 
   <class>com.skilldistillery.jpaonlineshoestore.entities.Cart</class> 
   <class>com.skilldistillery.jpaonlineshoestore.entities.Customer</class> 
+  <class>com.skilldistillery.jpaonlineshoestore.entities.CustomerOrder</class> 
   <class>com.skilldistillery.jpaonlineshoestore.entities.InventoryItem</class> 
   <class>com.skilldistillery.jpaonlineshoestore.entities.Kind</class> 
-  <class>com.skilldistillery.jpaonlineshoestore.entities.Order</class> 
   <class>com.skilldistillery.jpaonlineshoestore.entities.Shoe</class> 
   <class>com.skilldistillery.jpaonlineshoestore.entities.User</class> 
     

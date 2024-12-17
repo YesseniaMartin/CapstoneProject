@@ -50,5 +50,25 @@ class ShoeTest {
 		assertEquals(30.99, shoe.getPrice());
 	
 	}
+	
+	@Test
+	void test_Shoe_ManyToOne_Kind() {
+		assertNotNull(shoe);
+		assertEquals(1, shoe.getId());
+		assertEquals(30.99, shoe.getPrice());
+		
+		assertEquals("Running", shoe.getType().getName());
+		
+	}
+	
+	
+	void test_Shoe_ManyToOne_Brand() {
+		assertNotNull(shoe);
+		assertEquals(1, shoe.getId());
+		assertEquals(30.99, shoe.getPrice());
+		
+		assertEquals("Oxfords", shoe.getBrand().getName());
+	}
+	
 
 }
