@@ -45,7 +45,7 @@ package com.skilldistillery.jpaonlineshoestore.entities;
 		}
 
 		@Test
-		void test_Actor_basic_mapping() {
+		void test_Kind_basic_mapping() {
 			assertNotNull(kind);
 			assertEquals("Running", kind.getName());
 			
