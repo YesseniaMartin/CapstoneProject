@@ -125,11 +125,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `order`
+-- Table `customer_order`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `order` ;
+DROP TABLE IF EXISTS `customer_order` ;
 
-CREATE TABLE IF NOT EXISTS `order` (
+CREATE TABLE IF NOT EXISTS `customer_order` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `date` DATETIME NOT NULL,
   `confirmation_number` VARCHAR(100) NOT NULL,
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_cart_order1`
     FOREIGN KEY (`order_id`)
-    REFERENCES `order` (`id`)
+    REFERENCES `customer_order` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -267,12 +267,12 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `order`
+-- Data for table `customer_order`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `OnlineShoeStore`;
-INSERT INTO `order` (`id`, `date`, `confirmation_number`) VALUES (1, '2024-12-05 22:04:30', 'CONF123456');
-INSERT INTO `order` (`id`, `date`, `confirmation_number`) VALUES (2, '2024-12-06 22:04:30', 'CONF123457');
+INSERT INTO `customer_order` (`id`, `date`, `confirmation_number`) VALUES (1, '2024-12-05 22:04:30', 'CONF123456');
+INSERT INTO `customer_order` (`id`, `date`, `confirmation_number`) VALUES (2, '2024-12-06 22:04:30', 'CONF123457');
 
 COMMIT;
 

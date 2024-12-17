@@ -13,13 +13,13 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-class OrderTest {
+class CustomerOrderTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	
 	// entity under test
-	private Order order;
+	private CustomerOrder order;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -34,7 +34,7 @@ class OrderTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		order = em.find(Order.class, 1);
+		order = em.find(CustomerOrder.class, 1);
 	}
 
 	@AfterEach
@@ -47,7 +47,7 @@ class OrderTest {
 	void test_Shoe_basic_mapping() {
 		assertNotNull(order);
 		assertEquals(1, order.getId());
-		assertEquals(1, order.getDate());
+		assertEquals(2024, order.getDate().getYear());
 	}
 
 }
