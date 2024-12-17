@@ -20,8 +20,7 @@ public class Kind {
 	
 	private String description;
 	
-	@ManyToMany
-	@JoinColumn(name="")
+	
 
 	public Kind(int id, String name, String description) {
 		super();
