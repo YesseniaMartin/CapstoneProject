@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 // this is for the user
@@ -30,8 +32,9 @@ public class Customer {
 	@Column(name = "phone")
 	private String phone;
 	
-	@Column(name = "user_id")
-	private String userId;
+	@OneToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	Customer(){
 	}
@@ -76,28 +79,21 @@ public class Customer {
 		this.phone = phone;
 	}
 
-	public String getUserId() {
-		return userId;
+	
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Customer(int id, String firstName, String lastName, String email, String phone, String userId) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.phone = phone;
-		this.userId = userId;
-	}
 
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", phone=" + phone + ", userId=" + userId + "]";
+				+ ", phone=" + phone + "]";
 	}
 
 	@Override

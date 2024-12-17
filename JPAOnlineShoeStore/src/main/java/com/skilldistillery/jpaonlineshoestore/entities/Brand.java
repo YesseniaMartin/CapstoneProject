@@ -56,6 +56,4 @@ public class Brand {
 		return id == other.id;
 	}
 	
-	
-
 }

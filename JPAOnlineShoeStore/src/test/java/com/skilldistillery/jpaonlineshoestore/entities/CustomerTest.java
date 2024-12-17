@@ -48,8 +48,15 @@ class CustomerTest {
 		assertNotNull(customer);
 		assertEquals("John", customer.getFirstName());
 		assertEquals("Doe", customer.getLastName());
-		
+	}
 	
+	@Test
+	void test_Customer_OneToOne_User() {
+		assertNotNull(customer);
+		assertEquals(1, customer.getId());
+		
+		assertEquals("username", customer.getUser().getUsername());
+		assertEquals(1, customer.getUser().getId());
 	}
 
 }
