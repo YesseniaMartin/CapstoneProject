@@ -84,7 +84,4 @@ public class User {
 		User other = (User) obj;
 		return id == other.id;
 	}
-	
-	
-	
 }

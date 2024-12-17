@@ -2,7 +2,7 @@ package com.skilldistillery.onlineshoestore.data;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.jpaonlineshoestore.entities.User;
+import com.skilldistillery.jpaonlineshoestore.entities.Shoe;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -10,32 +10,34 @@ import jakarta.transaction.Transactional;
 
 @Service
 @Transactional
-public class UserDAOImpl implements UserDAO {
+public class ShoeDAOImpl implements ShoeDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
-	public User addUser(User user) {
+	public Shoe addShoe(Shoe shoe) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public User deleteUser(User user) {
+	public Shoe deleteShoe(Shoe shoe) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public User updateUser(User user) {
+	public Shoe updateShoe(Shoe shoe) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public User findUserById(int id) {
+	public Shoe findShoeByKeyword(String keyword) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 }
