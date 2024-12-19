@@ -52,15 +52,16 @@ public class ShoeDAOImpl implements ShoeDAO {
 
 	@Override
 	public List<Shoe> findShoeByKeyword(String keyword) {
-		if (keyword == null || keyword.trim().isEmpty()) {
-			return Collections.emptyList();
+		 String query = "SELECT s FROM Shoe s WHERE s.brand.name LIKE :keyword OR s.description LIKE :keyword";
+		    return em.createQuery(query, Shoe.class)
+		             .setParameter("keyword", "%" + keyword + "%")
+		             .getResultList();
 		}
-		String jpql = "SELECT s FROM Shoe s " +
-                "WHERE LOWER(COALESCE(s.brand.name, '')) LIKE :kw " +
-                "OR LOWER(COALESCE(s.type.name, '')) LIKE :kw";
-		
-		return em.createQuery(jpql, Shoe.class)
-				.setParameter("kw", "%" + keyword.toLowerCase() + "%")
-				.getResultList();
+
+	@Override
+	public List<Shoe> findAll() {
+		String jpql = "SELECT s FROM Shoe s";
+        return em.createQuery(jpql, Shoe.class).getResultList();
+    
 	}
 }

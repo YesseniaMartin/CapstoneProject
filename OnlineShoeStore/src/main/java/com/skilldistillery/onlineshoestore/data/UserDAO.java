@@ -7,5 +7,5 @@ public interface UserDAO {
 	boolean deleteUser(User user);
 	User updateUser(int id, User user);
 	User findUserById(int id);
-
+	User findByUsernameAndPassword(String username, String password);
 }
