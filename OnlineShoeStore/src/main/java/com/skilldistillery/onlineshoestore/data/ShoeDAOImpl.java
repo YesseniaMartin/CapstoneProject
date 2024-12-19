@@ -2,11 +2,8 @@ package com.skilldistillery.onlineshoestore.data;
 
 import java.util.Collections;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.skilldistillery.jpaonlineshoestore.entities.Shoe;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -66,5 +63,4 @@ public class ShoeDAOImpl implements ShoeDAO {
 				.setParameter("kw", "%" + keyword.toLowerCase() + "%")
 				.getResultList();
 	}
-	
 }
