@@ -55,7 +55,7 @@
   <div class="row justify-content-center">
     <div class="col-md-4">
       <div class="card shadow-sm p-4">
-        <form action="login.do" method="POST">
+        <form action="login.do" method="GET">
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username" required>

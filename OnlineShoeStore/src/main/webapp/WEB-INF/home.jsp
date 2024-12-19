@@ -36,7 +36,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="login.do">Add Shoe</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.do">Login</a></li>
         <li class="nav-item"><a class="nav-link" href="home.do">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="deleteShoe.do">Delete Shoe</a></li>
         <li class="nav-item"><a class="nav-link" href="update.do">Edit Shoe</a></li>

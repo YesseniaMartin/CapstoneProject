@@ -2,6 +2,7 @@ package com.skilldistillery.jpaonlineshoestore.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,15 +25,15 @@ public class Shoe {
 	@Column(name = "price")
 	private double price;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "type_id")
 	private Kind type; // Map to the kind table
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "brand_id")
 	private Brand brand;
 	
-	Shoe(){
+	public Shoe(){
 	}
 
 	public int getId() {
