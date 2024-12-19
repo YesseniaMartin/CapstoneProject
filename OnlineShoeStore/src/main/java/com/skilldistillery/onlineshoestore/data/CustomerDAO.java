@@ -1,5 +1,7 @@
 package com.skilldistillery.onlineshoestore.data;
 
+import java.util.List;
+
 import com.skilldistillery.jpaonlineshoestore.entities.Customer;
 
 public interface CustomerDAO {
@@ -7,5 +9,6 @@ public interface CustomerDAO {
 	boolean deleteCustomer(Customer customer);
 	Customer updateCustomer(int id, Customer customer);
 	Customer findCustomerById(int id);
+	
 
 }
