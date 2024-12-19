@@ -3,8 +3,6 @@ package com.skilldistillery.onlineshoestore.data;
 import com.skilldistillery.jpaonlineshoestore.entities.*;
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.jpaonlineshoestore.entities.Customer;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -38,41 +36,17 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return wasDeleted;
 	}
 
-	@Override /*make sure to test */
-	public Customer updateCustomer(Customer customer) {
-		updateCustomer = null;
-		String jpql = "UPDATE Customer customer " + "SET Customer.id = :id " + "SET Customer.firstname = :firstname "
-				+ "SET Customer.lastname = :lastname " + "SET Customer.email = :email" + "SET Customer.phone = :phone "
-				+ "SET Customer.user = :user ";
+	@Override 
+	public Customer updateCustomer(int id, Customer customer) {
+		Customer managedCustomer = em.find(Customer.class, id);
+		managedCustomer.setFirstName(customer.getFirstName());
+		managedCustomer.setLastName(customer.getLastName());
+		managedCustomer.setEmail(customer.getEmail());
+		managedCustomer.setPhone(customer.getPhone());
+		managedCustomer.setUser(customer.getUser());
 
-		Customer updatedCustomer = em.find(Customer.class, customer.getId());
-
-		if (customer.getFirstName() == null) {
-			customer.setFirstName(updatedCustomer.getFirstName());
-		}
-		if (customer.getLastName() == null) {
-			customer.setLastName(updatedCustomer.getLastName());
-		}
-		if (customer.getEmail() == null) {
-			customer.setEmail(updatedCustomer.getEmail());
-		}
-		if (customer.getPhone() == null) {
-			customer.setPhone(updatedCustomer.getPhone());
-		}
-		if (customer.getUser() == null) {
-			customer.setUser(updatedCustomer.getUser());
-		}
-		int updateColumns = em.createQuery(jpql).setParameter("id", customer.getId())
-				.setParameter("firstName", customer.getFirstName()).setParameter("lastName", customer.getLastName())
-				.setParameter("email", customer.getEmail()).setParameter("phone", customer.getPhone())
-				.setParameter("user", customer.getUser()).executeUpdate();
-
-		if (updateColumns > 0) {
-			return updatedCustomer;
-		} else {
-
-			return updateCustomer;
-		}
+		return managedCustomer;
+		
 	}
 
 	@Override

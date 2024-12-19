@@ -13,28 +13,32 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
-public class UserDAOImplTest {
+public class CustomerDAOImplTest {
 	
 	@Autowired
-	private  UserDAO dao;
-
+	private  CustomerDAO dao;
+	@Autowired
+	private  UserDAO daouser;
 
 
 	@Test
-	void test_create_update_delete() {
+	void test_create_update_delete() { //FIXME
 		
-		User newUser = new User();
-		newUser.setUsername("newUser");
-		newUser.setPassword("newUser");
-		User created = dao.addUser(newUser);
+		Customer newCustomer = dao.findCustomerById(2);
+		User user = daouser.findUserById(1);
+		newCustomer.setFirstName("Mary");
+		newCustomer.setLastName("Jane");
+		newCustomer.setEmail("email");
+		newCustomer.setPhone("phone");
+		newCustomer.setUser(user);
+		Customer created = dao.updateCustomer(2, newCustomer);
 
-		newUser = dao.findUserById(5);
-		boolean deleteNewUser = dao.deleteUser(newUser);
-		assertTrue(deleteNewUser);
+		Customer deleteCustomer = dao.findCustomerById(3);
+		boolean deleteNewCustomer = dao.deleteCustomer(deleteCustomer);
+		assertTrue(deleteNewCustomer);
 		
 		
 		
 	}
 
 }
-
