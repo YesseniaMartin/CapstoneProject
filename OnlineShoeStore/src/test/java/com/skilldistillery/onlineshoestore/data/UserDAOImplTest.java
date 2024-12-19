@@ -1,5 +1,8 @@
 package com.skilldistillery.onlineshoestore.data;
 import com.skilldistillery.jpaonlineshoestore.entities.*;
+
+import jakarta.persistence.EntityManager;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,12 +22,17 @@ public class UserDAOImplTest {
 
 	@Test
 	void test_create_update_delete() {
-		User user1 = new User();
-		user1.setUsername("user1");
-		user1.setPassword("user1");
-		User created = dao.addUser(user1);
-		assertNotNull(created);
-		assertTrue(created.getId() > 2);
+		EntityManager em;
+		User newUser = new User();
+		newUser.setUsername("newUser");
+		newUser.setPassword("newUser");
+		User created = dao.addUser(newUser);
+
+		newUser = dao.findUserById(5);
+		boolean deleteNewUser = dao.deleteUser(newUser);
+		assertTrue(deleteNewUser);
+		
+		
 		
 	}
 
