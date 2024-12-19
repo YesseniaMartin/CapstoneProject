@@ -1,11 +1,8 @@
 package com.skilldistillery.onlineshoestore.data;
 
-<<<<<<< HEAD
 import java.util.Collections;
 import java.util.List;
 
-=======
->>>>>>> Remote_Branch1
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpaonlineshoestore.entities.Shoe;
@@ -17,17 +14,12 @@ import jakarta.transaction.Transactional;
 @Service
 @Transactional
 public class ShoeDAOImpl implements ShoeDAO {
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> Remote_Branch1
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
 	public Shoe addShoe(Shoe shoe) {
-<<<<<<< HEAD
 		em.persist(shoe);
 		return shoe;
 	}
@@ -42,21 +34,10 @@ public class ShoeDAOImpl implements ShoeDAO {
 		}
 		wasDeleted = wasDeleted && !em.contains(deleteShoe);
 		return wasDeleted;
-=======
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Shoe deleteShoe(Shoe shoe) {
-		// TODO Auto-generated method stub
-		return null;
->>>>>>> Remote_Branch1
 	}
 
 	@Override
 	public Shoe updateShoe(Shoe shoe) {
-<<<<<<< HEAD
 		Shoe newShoe = em.find(Shoe.class, shoe.getId());
 	    if (newShoe == null) {
 	        return null;
@@ -85,17 +66,5 @@ public class ShoeDAOImpl implements ShoeDAO {
 				.setParameter("kw", "%" + keyword.toLowerCase() + "%")
 				.getResultList();
 	}
-=======
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Shoe findShoeByKeyword(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
->>>>>>> Remote_Branch1
 	
 }
