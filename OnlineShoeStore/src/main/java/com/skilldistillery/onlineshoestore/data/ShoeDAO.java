@@ -9,5 +9,5 @@ public interface ShoeDAO {
 	public boolean deleteShoe(Shoe shoe);
 	Shoe updateShoe(Shoe shoe);
 	public List<Shoe> findShoeByKeyword(String keyword);
-
+  
 }

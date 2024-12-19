@@ -33,7 +33,6 @@ public class ShoeDAOImpl implements ShoeDAO {
 		return wasDeleted;
 	}
 
-
 	@Override
 	public Shoe updateShoe(Shoe shoe) {
 		Shoe newShoe = em.find(Shoe.class, shoe.getId());
