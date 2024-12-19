@@ -6,8 +6,10 @@ import com.skilldistillery.jpaonlineshoestore.entities.Shoe;
 
 public interface ShoeDAO {
 	Shoe addShoe(Shoe shoe);
-	public boolean deleteShoe(Shoe shoe);
+	boolean deleteShoe(Shoe shoe);
 	Shoe updateShoe(Shoe shoe);
-	public List<Shoe> findShoeByKeyword(String keyword);
+	List<Shoe> findShoeByKeyword(String keyword);
+	Shoe findShoeById(int id);
+	
   
 }
