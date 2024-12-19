@@ -77,8 +77,10 @@ public class ShoeDAOImpl implements ShoeDAO {
 		if (keyword == null || keyword.trim().isEmpty()) {
 			return Collections.emptyList();
 		}
-		String jpql = "SELECT s FROM Shoe s WHERE LOWER(s.brand.name) LIKE :kw OR LOWER(s.type.name) LIKE :kw";
-
+		String jpql = "SELECT s FROM Shoe s " +
+                "WHERE LOWER(COALESCE(s.brand.name, '')) LIKE :kw " +
+                "OR LOWER(COALESCE(s.type.name, '')) LIKE :kw";
+		
 		return em.createQuery(jpql, Shoe.class)
 				.setParameter("kw", "%" + keyword.toLowerCase() + "%")
 				.getResultList();
