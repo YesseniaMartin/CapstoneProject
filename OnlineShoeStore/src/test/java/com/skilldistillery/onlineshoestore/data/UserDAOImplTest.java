@@ -18,7 +18,7 @@ public class UserDAOImplTest {
 
 	@Test
 	void test_create_update_delete() {
-		EntityManager em;
+		
 		User newUser = new User();
 		newUser.setUsername("newUser");
 		newUser.setPassword("newUser");
