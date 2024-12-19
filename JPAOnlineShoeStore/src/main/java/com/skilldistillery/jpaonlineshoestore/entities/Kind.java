@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 @Entity
 @Table(name="kind")
@@ -17,6 +19,8 @@ public class Kind {
 	private String name;
 	
 	private String description;
+	
+	
 
 	public Kind(int id, String name, String description) {
 		super();
