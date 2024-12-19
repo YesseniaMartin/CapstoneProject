@@ -55,7 +55,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item"><a class="nav-link" href="login.do">Logout</a></li>
+					<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
 					<li class="nav-item"><a class="nav-link" href="home.do">Home</a></li>
 				</ul>
 			</div>
@@ -75,7 +75,6 @@
 		</div>
 
 		<div class="row">
-			<!-- Assuming `shoes` is a list of Shoe objects with shoe.img, brand name, and description -->
 			<c:forEach var="shoes" items="${shoes}">
 				<div class="col-md-4 col-sm-6 mb-4">
 					<div class="card shadow-sm">
