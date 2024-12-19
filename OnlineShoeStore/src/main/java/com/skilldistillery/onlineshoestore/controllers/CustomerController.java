@@ -31,7 +31,7 @@ public class CustomerController {
 			e.printStackTrace();
 		}
 		mv.addObject("customer", findCustomer);
-		mv.setViewName("Show");
+		mv.setViewName("WEB-INF/show.jsp");
 		return mv;
 	}
 	
