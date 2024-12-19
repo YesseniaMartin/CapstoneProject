@@ -15,15 +15,15 @@ public class UserDAOImplTest {
 	@Autowired
 	private  UserDAO dao;
 
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-		
-	}
-
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-		
-	}
+//	@BeforeAll
+//	static void setUpBeforeClass() throws Exception {
+//		
+//	}
+//
+//	@AfterAll
+//	static void tearDownAfterClass() throws Exception {
+//		
+//	}
 
 	@Test
 	void test_create_update_delete() {
