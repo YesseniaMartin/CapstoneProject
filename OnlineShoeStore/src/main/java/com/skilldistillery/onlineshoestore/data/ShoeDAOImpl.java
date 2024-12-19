@@ -26,7 +26,7 @@ public class ShoeDAOImpl implements ShoeDAO {
 	@Override
 	public boolean deleteShoe(Shoe shoe) {
 		boolean wasDeleted = false;
-		Shoe deleteShoe = em.find(Shoe.class, shoe);
+		Shoe deleteShoe = em.find(Shoe.class, shoe.getId());
 		if (deleteShoe != null) {
 			em.remove(deleteShoe);
 			wasDeleted = true;
