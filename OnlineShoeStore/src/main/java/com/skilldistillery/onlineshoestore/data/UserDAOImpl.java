@@ -28,47 +28,24 @@ public class UserDAOImpl implements UserDAO {
 	public boolean deleteUser(User user) {
 		boolean wasDeleted = false;
 
-		User userToBeDeleted = em.find(User.class, user);
-		if (userToBeDeleted != null)
+		User userToBeDeleted = em.find(User.class, user.getId());
+		if (userToBeDeleted != null) {
 			em.remove(userToBeDeleted);
 		wasDeleted = true;
-
+		}
 		wasDeleted = !em.contains(userToBeDeleted);
 		return wasDeleted;
 	}
 
-	@Override /*make sure to test */
-	public User updateUser(User user) {
-		updateuser = null;
-		String jpql = "UPDATE user user " + "SET user.id = :id " + "SET user.firstname = :firstname "
-				+ "SET user.lastname = :lastname " + "SET user.email = :email" + "SET user.phone = :phone "
-				+ "SET user.user = :user ";
+	@Override 
+	public User updateUser(int id, User user) {
+		User managedUser = em.find(User.class, id);
+		managedUser.setUsername(user.getUsername());
+		managedUser.setPassword(user.getPassword());
+		managedUser.setEnabled(user.getEnabled());
+		managedUser.setRole(user.getRole());
+		return managedUser;
 
-		User updatedUser = em.find(User.class, user.getId());
-
-		if (user.getUsername() == null) {
-			user.setUsername(updatedUser.getUsername());
-		}
-		if (user.getPassword() == null) {
-			user.setPassword(updatedUser.getPassword());
-		}
-		if (user.getEnabled() == false) {
-			user.setEnabled(true);
-		}
-		if (user.getRole() == null) {
-			user.setRole(updatedUser.getRole());
-		}
-		
-		int updateColumns = em.createQuery(jpql).setParameter("username", user.getUsername())
-				.setParameter("passwrd", user.getPassword()).setParameter("enabled", user.getEnabled())
-				.setParameter("role", user.getRole()).executeUpdate();
-
-		if (updateColumns > 0) {
-			return updatedUser;
-		} else {
-
-			return updateuser;
-		}
 	}
 
 	@Override
