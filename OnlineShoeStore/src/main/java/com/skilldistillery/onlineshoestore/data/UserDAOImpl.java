@@ -10,7 +10,7 @@ import jakarta.transaction.Transactional;
 @Service
 @Transactional
 public class UserDAOImpl implements UserDAO {
-
+	
 	@PersistenceContext
 	private EntityManager em;
 	User updateuser = new User();
@@ -18,6 +18,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User addUser(User user) {
+		user.setEnabled(true);
 		em.persist(user);
 		newUser = em.find(User.class, user.getId());
 		return user;
