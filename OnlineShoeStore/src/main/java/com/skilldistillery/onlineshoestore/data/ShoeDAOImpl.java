@@ -3,6 +3,8 @@ package com.skilldistillery.onlineshoestore.data;
 import java.util.Collections;
 import java.util.List;
 import org.springframework.stereotype.Service;
+
+import com.skilldistillery.jpaonlineshoestore.entities.CustomerOrder;
 import com.skilldistillery.jpaonlineshoestore.entities.Shoe;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -63,5 +65,12 @@ public class ShoeDAOImpl implements ShoeDAO {
 		String jpql = "SELECT s FROM Shoe s";
         return em.createQuery(jpql, Shoe.class).getResultList();
     
+	}
+
+	@Override
+	public Shoe findShoeById(int id) {
+		Shoe shoe = em.find(Shoe.class, id);
+
+		return shoe;
 	}
 }
