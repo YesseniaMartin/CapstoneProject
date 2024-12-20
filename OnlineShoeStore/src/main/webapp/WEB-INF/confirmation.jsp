@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HOME</title>
+<title>Confirmation</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -64,39 +64,15 @@
 	</nav>
 
 	<section class="hero text-center mb-1">
-		<h1>Step into Style</h1>
+		<h3>shoe</h3>
 	</section>
 
-	<div class="container">
-		<div class="row mb-4">
-			<div class="col text-center">
-				<h2 class="display-6">Our Latest Shoes</h2>
-				<p class="lead">Explore the newest additions to our collection.</p>
-			</div>
-		</div>
-
-		<div class="row">
-			<c:forEach var="shoes" items="${shoes}">
-				<div class="col-md-4 col-sm-6 mb-4">
-					<div class="card shadow-sm">
-						<div class="card-body">
-							<h5 class="card-title">${shoe.brand.name}${shoe.type.name}</h5>
-							<h4 class="card-text">${shoe.price}</h4>
-							<a href="shoeDetails.do?shoeId=${shoe.id}"
-								class="btn btn-primary">View Details</a>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
-			
-
-			<c:if test="${empty shoes}">
-				<div class="col-12">
-					<div class="alert alert-warning text-center">No shoes
-						available at the moment!</div>
-				</div>
-			</c:if>
-		</div>
+	<div class="container mt-5">
+		<h1>Your Shoe Was Successfully Placed!</h1>
+		<p>
+			Thank you for adding this shoe to our collection. <a href="home.do">Return
+				to Home</a>
+		</p>
 	</div>
 
 	<!-- Bootstrap JS -->
