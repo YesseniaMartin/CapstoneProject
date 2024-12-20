@@ -8,6 +8,7 @@
 <title>Shoe Details</title>
 </head>
 <body>
+
 <c:forEach items="${shoes }" var="shoe">
 	<p>Price:&nbsp;${shoe.price }</p>
 	<p>Type:&nbsp;${shoe.type.name }</p>

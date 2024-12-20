@@ -20,13 +20,13 @@ public class ShoeDAOImplTest {
 	@Test
 	void test_shoe_impl() {
 		Brand brand = new Brand();
-		brand.setName("Nike");
+		brand.setName("Oxfords");
 		Kind kind = new Kind();
-		kind.setName("Running");
+		kind.setName("Work");
 		Shoe newShoe = new Shoe();
 		newShoe.setBrand(brand);
 		newShoe.setType(kind);
-		newShoe.setPrice(12.00);
+		newShoe.setPrice(55.00);
 		newShoe = dao.addShoe(newShoe);
 		
 		boolean deleteShoe = dao.deleteShoe(newShoe);

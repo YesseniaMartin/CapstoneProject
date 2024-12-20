@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
-<%@ taglib prefix="v" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="v" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,40 +66,29 @@
 	</nav>
 
 	<section class="hero text-center mb-1">
-		<h1>Step into Style</h1>
+		<h1>Shoe Details</h1>
 	</section>
 
 	<div class="container">
 		<div class="row mb-4">
 			<div class="col text-center">
-				<h2 class="display-6">Our Latest Shoes</h2>
-				<p class="lead">Explore the newest additions to our collection.</p>
+				<h2 class="display-6">Options for Everyone</h2>
+				<p class="lead">Shoe collection.</p>
 			</div>
 		</div>
 
-		<div class="row">
-			<c:forEach var="shoe" items="${shoes}">
-				<div class="col-md-4 col-sm-6 mb-4">
-					<div class="card shadow-sm">
-						<div class="card-body">
-							<h5 class="card-title">${shoe.brand.name}</h5>
-							<h5 class="card-title">${shoe.type.name}</h5>
-							<h4 class="card-text">${shoe.price}</h4>
-							<a href="viewDetails.do?shoeId=${shoe.id}"
-								class="btn btn-primary">View Details</a>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
-			
-
-			<c:if test="${empty shoes}">
-				<div class="col-12">
-					<div class="alert alert-warning text-center">No shoes
-						available at the moment!</div>
-				</div>
-			</c:if>
+		<div>
+			<h2>${shoe.brand.name}- ${shoe.type.name}</h2>
+			<p>
+				<strong>Price:</strong> ${shoe.price}
+			</p>
+			<p>
+				<strong>Kind:</strong> ${shoe.type.name}
+			</p>
+			<a href="home.do" class="btn btn-primary">Back to List</a>
 		</div>
+		
+		
 	</div>
 
 	<!-- Bootstrap JS -->
