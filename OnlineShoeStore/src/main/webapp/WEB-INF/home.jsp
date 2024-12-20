@@ -45,7 +45,7 @@
 			<div class="container mb-4">
 				<div class="row justify-content-center">
 					<div class="col-md-6">
-						<form action="search.do" method="GET" class="d-flex">
+						<form action="findShoeByKeyword.do" method="GET" class="d-flex">
 							<input type="text" name="keyword" class="form-control me-2"
 								placeholder="Search shoes..." />
 							<button type="submit" class="btn btn-primary">Search</button>

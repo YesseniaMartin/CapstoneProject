@@ -54,7 +54,7 @@ public class ShoeDAOImpl implements ShoeDAO {
 
 	@Override
 	public List<Shoe> findShoeByKeyword(String keyword) {
-		 String query = "SELECT s FROM Shoe s WHERE s.brand.name LIKE :keyword OR s.description LIKE :keyword";
+		 String query = "SELECT s FROM Shoe s WHERE s.brand.name LIKE :keyword OR s.type.name LIKE :keyword";
 		    return em.createQuery(query, Shoe.class)
 		             .setParameter("keyword", "%" + keyword + "%")
 		             .getResultList();
