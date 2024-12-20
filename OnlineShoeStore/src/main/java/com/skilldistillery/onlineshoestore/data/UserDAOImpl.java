@@ -1,16 +1,20 @@
 package com.skilldistillery.onlineshoestore.data;
 
-import com.skilldistillery.jpaonlineshoestore.entities.*;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.jpaonlineshoestore.entities.User;
+
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
 @Service
 @Transactional
 public class UserDAOImpl implements UserDAO {
-	
 	@PersistenceContext
 	private EntityManager em;
 	User updateuser = new User();
@@ -55,4 +59,18 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
+	 @Override
+	    public User findByUsernameAndPassword(String username, String password) {
+	        String jpql = "SELECT u FROM User u WHERE u.username = :username AND u.password = :password";
+	        try {
+	            return em.createQuery(jpql, User.class)
+	                     .setParameter("username", username)
+	                     .setParameter("password", password)
+	                     .getSingleResult();
+	        } catch (NoResultException e) {
+	            return null; // Return null if no user matches the credentials
+	        }
+	    }
+	
+	
 }

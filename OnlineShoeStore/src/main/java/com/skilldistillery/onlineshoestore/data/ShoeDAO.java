@@ -10,6 +10,5 @@ public interface ShoeDAO {
 	Shoe updateShoe(Shoe shoe);
 	List<Shoe> findShoeByKeyword(String keyword);
 	Shoe findShoeById(int id);
-	
-  
+	List<Shoe> findAll();
 }
