@@ -9,12 +9,9 @@
 </head>
 <body>
 <c:forEach items="${shoes }" var="shoe">
-	<p>Price:</p>
-	${shoe.price }
-	<p>Type:</p>
-	${shoe.type }
-	<p>Brand:</p>
-	${shoe.brand }
+	<p>Price:&nbsp;${shoe.price }</p>
+	<p>Type:&nbsp;${shoe.type.name }</p>
+	<p>Brand:&nbsp;${shoe.brand.name }</p>
 </c:forEach>	
 <form action="addToCart.do">
 	<input type="submit" value="Add to Cart">
