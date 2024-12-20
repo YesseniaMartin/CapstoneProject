@@ -43,6 +43,8 @@ public interface CartDAO {
     Cart clearCart(int cartId);
 
 	Cart findCartByCustomerId(int customerId);  
+	
+	Cart createCart(Cart cart);
     
     
 

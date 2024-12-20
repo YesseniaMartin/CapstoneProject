@@ -105,4 +105,12 @@ public class CartDAOImpl implements CartDAO {
 
 	}
 
+	@Override
+	public Cart createCart(Cart cart) {
+	    em.persist(cart);
+	    
+	    return cart;
+	}
+	
+
 }

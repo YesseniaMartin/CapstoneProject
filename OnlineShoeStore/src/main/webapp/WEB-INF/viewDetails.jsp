@@ -59,7 +59,7 @@
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
 					<li class="nav-item"><a class="nav-link" href="home.do">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href=" ">Cart</a></li>
+					<li class="nav-item"><a class="nav-link" href="cart.do">Cart</a></li>
 				</ul>
 			</div>
 		</div>
@@ -78,7 +78,7 @@
 		</div>
 
 		<div>
-			<h2>${shoe.brand.name}- ${shoe.type.name}</h2>
+			<h2>${shoe.brand.name}-${shoe.type.name}</h2>
 			<p>
 				<strong>Price:</strong> ${shoe.price}
 			</p>
@@ -87,10 +87,10 @@
 			</p>
 			<a href="home.do" class="btn btn-primary">Back to Home</a>
 			<a href="cart.do" class="btn btn-primary">Add To Cart</a>
-			
+
 		</div>
 		<!-- add cart button to the view detail page  && add shoe image-->
-		
+
 	</div>
 
 	<!-- Bootstrap JS -->
