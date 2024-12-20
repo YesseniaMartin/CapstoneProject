@@ -51,7 +51,7 @@ public class UserController {
 	    return "home"; 
 	}
 
-	@GetMapping("/search.do")
+	@GetMapping("search.do")
 	public String search(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
 	    List<Shoe> shoes;
 	    if (keyword == null || keyword.trim().isEmpty()) {
@@ -59,7 +59,7 @@ public class UserController {
 	    } else {
 	        shoes = shoeDAO.findShoeByKeyword(keyword);
 	    }
-	    model.addAttribute("shoe", shoes);
+	    model.addAttribute("shoes", shoes);
 	    return "shoe"; 
 	}
 	
