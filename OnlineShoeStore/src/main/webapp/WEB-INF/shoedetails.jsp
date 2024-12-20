@@ -8,12 +8,14 @@
 <title>Shoe Details</title>
 </head>
 <body>
-	<p>You can enter a search term here, to look up details for any shoes in our inventory</p><br>
-	<form action="findShoeByKeyword.do">
-	<input type= "text" name="Keyword" placeholder="input your search term here">
-	<input type="submit" value="Search">
-	
-	</form><br>
+<c:forEach items="${shoes }" var="shoe">
+	<p>Price:</p>
+	${shoe.price }
+	<p>Type:</p>
+	${shoe.type }
+	<p>Brand:</p>
+	${shoe.brand }
+</c:forEach>	
 	<br>	 
 </body>
 </html>

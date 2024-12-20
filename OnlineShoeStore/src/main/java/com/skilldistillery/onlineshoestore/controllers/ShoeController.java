@@ -3,6 +3,7 @@ package com.skilldistillery.onlineshoestore.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.jpaonlineshoestore.entities.*;
 import com.skilldistillery.onlineshoestore.data.*;
-
+@Controller
 public class ShoeController {
 	private final ShoeDAO dao; 
 	Shoe addShoe = new Shoe();
@@ -30,7 +31,7 @@ public class ShoeController {
 
 			e.printStackTrace();
 		}
-		mv.addObject("shoe", findShoeByKeyword);
+		mv.addObject("shoes", findShoeByKeyword);
 		mv.setViewName("shoedetails");
 		return mv;
 	}

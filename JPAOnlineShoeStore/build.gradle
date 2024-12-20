@@ -41,6 +41,7 @@ dependencies {
   implementation "org.hibernate:hibernate-c3p0:$hibernateVersion"
   testImplementation "org.junit.jupiter:junit-jupiter:$junit5Version"
   testImplementation 'org.junit.platform:junit-platform-launcher:1.9.3'
+  implementation 'com.mchange:c3p0:0.9.5.5'
 }
 
 test {
