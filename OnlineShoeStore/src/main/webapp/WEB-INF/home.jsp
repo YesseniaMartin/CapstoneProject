@@ -82,9 +82,10 @@
 				<div class="col-md-4 col-sm-6 mb-4">
 					<div class="card shadow-sm">
 						<div class="card-body">
-							<h5 class="card-title">${shoe.brand.name}${shoe.type.name}</h5>
+							<h5 class="card-title">${shoe.brand.name}</h5>
+							<h5 class="card-title">${shoe.type.name}</h5>
 							<h4 class="card-text">${shoe.price}</h4>
-							<a href="shoedetails.do?shoeId=${shoe.id}"
+							<a href="findShoeByKeyword.do?shoeId=${shoe.id}"
 								class="btn btn-primary">View Details</a>
 						</div>
 					</div>
