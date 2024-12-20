@@ -11,8 +11,9 @@
 	<p>You can enter a search term here, to look up details for any shoes in our inventory</p><br>
 	<form action="findShoeByKeyword.do">
 	<input type= "text" name="Keyword" placeholder="input your search term here">
-	<input type="sumbit" value="Search">
+	<input type="submit" value="Search">
+	
 	</form><br>
-	<br> 
+	<br>	 
 </body>
 </html>
