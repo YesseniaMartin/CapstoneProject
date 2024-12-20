@@ -31,7 +31,7 @@ public class ShoeController {
 			e.printStackTrace();
 		}
 		mv.addObject("shoe", findShoeByKeyword);
-		mv.setViewName("WEB-INF/shoedetails.jsp");
+		mv.setViewName("shoedetails");
 		return mv;
 	}
 	@PostMapping("deleteShoe.do")
@@ -45,7 +45,7 @@ public class ShoeController {
 				e.printStackTrace();
 			}
 		mv.addObject("shoe", deleteShoe);
-		mv.setViewName("WEB-INF/cart.jsp");
+		mv.setViewName("cart");
 		return mv;
 	}
 	@PostMapping("addShoe.do")
@@ -58,7 +58,7 @@ public class ShoeController {
 			e.printStackTrace();
 		}
 		mv.addObject("shoe", addShoe);
-		mv.setViewName("WEB-INF/cart.jsp");
+		mv.setViewName("cart");
 		return mv;
 	}
 	@PostMapping("updateShoe.do")
@@ -71,7 +71,7 @@ public class ShoeController {
 			e.printStackTrace();
 		}
 		mv.addObject("shoe", updateShoe);
-		mv.setViewName("WEB-INF/cart.jsp");
+		mv.setViewName("cart");
 		return mv;
 		}
 }
