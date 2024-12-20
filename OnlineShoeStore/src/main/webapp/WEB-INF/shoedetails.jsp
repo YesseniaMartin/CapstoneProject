@@ -16,6 +16,9 @@
 	<p>Brand:</p>
 	${shoe.brand }
 </c:forEach>	
+<form action="addToCart.do">
+	<input type="submit" value="Add to Cart">
+	</form><br>
 	<br>	 
 </body>
 </html>
