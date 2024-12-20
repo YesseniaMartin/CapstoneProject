@@ -85,9 +85,11 @@
 			<p>
 				<strong>Kind:</strong> ${shoe.type.name}
 			</p>
-			<a href="home.do" class="btn btn-primary">Back to List</a>
+			<a href="home.do" class="btn btn-primary">Back to Home</a>
+			<a href="cart.do" class="btn btn-primary">Add To Cart</a>
+			
 		</div>
-		
+		<!-- add cart button to the view detail page  && add shoe image-->
 		
 	</div>
 
