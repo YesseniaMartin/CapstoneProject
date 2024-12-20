@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
+<%@ taglib prefix="v" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +46,8 @@
 			<div class="container mb-4">
 				<div class="row justify-content-center">
 					<div class="col-md-6">
-						<form action="search.do" method="GET" class="d-flex">
+
+						<form action="findShoeByKeyword.do" method="GET" class="d-flex">
 							<input type="text" name="keyword" class="form-control me-2"
 								placeholder="Search shoes..." />
 							<button type="submit" class="btn btn-primary">Search</button>
@@ -57,6 +59,7 @@
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
 					<li class="nav-item"><a class="nav-link" href="home.do">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href=" ">Cart</a></li>
 				</ul>
 			</div>
 		</div>
@@ -75,18 +78,20 @@
 		</div>
 
 		<div class="row">
-			<c:forEach var="shoes" items="${shoes}">
+			<c:forEach var="shoe" items="${shoes}">
 				<div class="col-md-4 col-sm-6 mb-4">
 					<div class="card shadow-sm">
 						<div class="card-body">
-							<h5 class="card-title">${shoe.brand.name}${shoe.type.name}</h5>
+							<h5 class="card-title">${shoe.brand.name}</h5>
+							<h5 class="card-title">${shoe.type.name}</h5>
 							<h4 class="card-text">${shoe.price}</h4>
-							<a href="getShoeDetails.do?shoeId=${shoe.id}"
+							<a href="viewDetails.do?shoeId=${shoe.id}"
 								class="btn btn-primary">View Details</a>
 						</div>
 					</div>
 				</div>
 			</c:forEach>
+			
 
 			<c:if test="${empty shoes}">
 				<div class="col-12">

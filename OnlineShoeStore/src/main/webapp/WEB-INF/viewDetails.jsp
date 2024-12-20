@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
+<%@ taglib prefix="v" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Shoe Details</title>
+<title>HOME</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -31,7 +32,7 @@
 }
 </style>
 </head>
-<body>
+
 <body class="bg-light">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
@@ -76,29 +77,25 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<c:forEach items="${shoes }" var="shoe">
-				<div class="col-md-4 col-sm-6 mb-4">
-					<div class="card shadow-sm">
-						<div class="card-body">
-							<h2>${shoe.brand.name}-${shoe.type.name}</h2>
-							<p>
-								<strong>Price:&nbsp;</strong>${shoe.price }</p>
-							<p>
-								<strong>Type:&nbsp;</strong>${shoe.type.name }</p>
-							<p>
-								<strong>Brand:&nbsp;</strong>${shoe.brand.name }</p>
-
-							<form action="addToCart.do" method="post" class="mt-3">
-								<input type="hidden" name="shoeId" value="${shoe.id}">
-								<button type="submit" class="btn btn-primary">Add to Cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
-			<br> <br>
+		<div>
+			<h2>${shoe.brand.name}- ${shoe.type.name}</h2>
+			<p>
+				<strong>Price:</strong> ${shoe.price}
+			</p>
+			<p>
+				<strong>Kind:</strong> ${shoe.type.name}
+			</p>
+			<a href="home.do" class="btn btn-primary">Back to Home</a>
+			<a href="cart.do" class="btn btn-primary">Add To Cart</a>
+			
 		</div>
+		<!-- add cart button to the view detail page  && add shoe image-->
+		
 	</div>
+
+	<!-- Bootstrap JS -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

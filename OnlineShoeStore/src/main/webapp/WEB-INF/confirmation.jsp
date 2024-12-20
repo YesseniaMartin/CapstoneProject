@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Shoe Details</title>
+<title>Confirmation</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -31,7 +31,7 @@
 }
 </style>
 </head>
-<body>
+
 <body class="bg-light">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
@@ -45,8 +45,7 @@
 			<div class="container mb-4">
 				<div class="row justify-content-center">
 					<div class="col-md-6">
-
-						<form action="findShoeByKeyword.do" method="GET" class="d-flex">
+						<form action="search.do" method="GET" class="d-flex">
 							<input type="text" name="keyword" class="form-control me-2"
 								placeholder="Search shoes..." />
 							<button type="submit" class="btn btn-primary">Search</button>
@@ -65,40 +64,20 @@
 	</nav>
 
 	<section class="hero text-center mb-1">
-		<h1>Shoe Details</h1>
+		<h3>shoe</h3>
 	</section>
 
-	<div class="container">
-		<div class="row mb-4">
-			<div class="col text-center">
-				<h2 class="display-6">Options for Everyone</h2>
-				<p class="lead">Shoe collection.</p>
-			</div>
-		</div>
-
-		<div class="row">
-			<c:forEach items="${shoes }" var="shoe">
-				<div class="col-md-4 col-sm-6 mb-4">
-					<div class="card shadow-sm">
-						<div class="card-body">
-							<h2>${shoe.brand.name}-${shoe.type.name}</h2>
-							<p>
-								<strong>Price:&nbsp;</strong>${shoe.price }</p>
-							<p>
-								<strong>Type:&nbsp;</strong>${shoe.type.name }</p>
-							<p>
-								<strong>Brand:&nbsp;</strong>${shoe.brand.name }</p>
-
-							<form action="addToCart.do" method="post" class="mt-3">
-								<input type="hidden" name="shoeId" value="${shoe.id}">
-								<button type="submit" class="btn btn-primary">Add to Cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
-			<br> <br>
-		</div>
+	<div class="container mt-5">
+		<h1>Your Shoe Was Successfully Placed!</h1>
+		<p>
+			Thank you for adding this shoe to our collection. <a href="home.do">Return
+				to Home</a>
+		</p>
 	</div>
+
+	<!-- Bootstrap JS -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

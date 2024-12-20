@@ -60,7 +60,7 @@ public class UserController {
 	        shoes = shoeDAO.findShoeByKeyword(keyword);
 	    }
 	    model.addAttribute("shoes", shoes);
-	    return "shoes"; 
+	    return "shoe"; 
 	}
 	
 	@GetMapping("logout.do")
