@@ -40,6 +40,10 @@ public interface CartDAO {
      * @param cartId The unique identifier of the cart to clear.
      * @return The updated Cart object after clearing all items.
      */
-    Cart clearCart(int cartId);  
+    Cart clearCart(int cartId);
+
+	Cart findCartByCustomerId(int customerId);  
+    
+    
 
 }
