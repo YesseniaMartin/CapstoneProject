@@ -77,19 +77,31 @@
 			</div>
 		</div>
 
-		<div>
-			<h2>${shoe.brand.name}-${shoe.type.name}</h2>
-			<p>
-				<strong>Price:</strong> ${shoe.price}
-			</p>
-			<p>
-				<strong>Kind:</strong> ${shoe.type.name}
-			</p>
-			<a href="home.do" class="btn btn-primary">Back to Home</a>
-			<a href="cart.do" class="btn btn-primary">Add To Cart</a>
-
+		<div class="row">
+			<div class="col-md-4 col-sm-6 mb-4">
+				<div class="card shadow-sm">
+					<img
+						src="https://www.basspro.com/shop/en/merrell-morphlite-trail-running-shoes-for-men?hvarAID=shopping_googleproductextensions&amp;ds_e=GOOGLE&amp;ds_c=BPS%7CShopping%7CPMax%7CFootwear%7CGeneral%7CNAud%7CNVol%7CNMT&gad_source=1&gclid=CjwKCAiAyJS7BhBiEiwAyS9uNTLWHEf8fhWI4RSYly3EDQJ1w7X-lD4e4oTsZMVKtEtfi0i6Nu2IMRoCCOQQAvD_BwE&gclsrc=aw.ds"
+						alt="${shoe.brand.name} - ${shoe.type.name}" class="img-thumbnail"
+						style="height: 200px; object-fit: cover;">
+					<div class="card-body">
+						<h2>${shoe.brand.name}-${shoe.type.name}</h2>
+						<p>
+							<strong>Price:</strong> ${shoe.price}
+						</p>
+						<p>
+							<strong>Type:</strong> ${shoe.type.name}
+						</p>
+						<form action="addToCart.do" method="post" class="mt-3">
+							<input type="hidden" name="shoeId" value="${shoe.id}">
+							<button type="submit" class="btn btn-primary">Add to
+								Cart</button>
+						</form>
+					</div>
+				</div>
+				<br> <br>
+			</div>
 		</div>
-		<!-- add cart button to the view detail page  && add shoe image-->
 
 	</div>
 
