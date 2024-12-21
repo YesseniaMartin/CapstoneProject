@@ -81,12 +81,14 @@
 		<div class="row">
 			<c:forEach items="${shoes }" var="shoe">
 				<div class="col-md-4 col-sm-6 mb-4">
+				
 					<div class="card shadow-sm">
 					<a href="https://www.basspro.com/shop/en/merrell-morphlite-trail-running-shoes-for-men?hvarAI[…]EDQJ1w7X-lD4e4oTsZMVKtEtfi0i6Nu2IMRoCCOQQAvD_BwE&gclsrc=aw.ds">
 					<img src="https://assets.basspro.com/image/upload/c_limit,dpr_1.0,f_auto,h_881,q_auto,w_1500/c_limit,h_881,w_1500/v1/ProductImages/500/stone_101432442_main?pgw=1" 
                          alt="${shoe.brand.name} - ${shoe.type.name}" 
                          class="img-thumbnail" 
                          style="height: 200px; object-fit: cover;"></a>
+						
 						<div class="card-body">
 							<h2>${shoe.brand.name}-${shoe.type.name}</h2>
 							<p>
@@ -101,11 +103,13 @@
 								<button type="submit" class="btn btn-primary">Add to Cart</button>
 							</form>
 						</div>
+						
 					</div>
 				</div>
 			</c:forEach>
 			<br> <br>
 		</div>
+		
 	</div>
 </body>
 </html>
