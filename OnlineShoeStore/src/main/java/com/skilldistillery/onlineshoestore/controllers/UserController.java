@@ -98,9 +98,9 @@ public class UserController {
 	}
 
 	@GetMapping("logout.do")
-	public String logout(HttpSession session, Model model) {
+	public String logout(HttpSession session) {
 		session.invalidate();
-		addCartCountToModel(session, model);
+		
 		return "redirect:/";
 	}
 }
