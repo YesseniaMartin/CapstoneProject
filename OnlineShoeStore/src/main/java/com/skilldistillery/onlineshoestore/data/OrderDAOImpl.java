@@ -22,5 +22,11 @@ public class OrderDAOImpl implements OrderDAO {
 
 		return order;
 	}
+	
+	@Override
+    public CustomerOrder addOrder(CustomerOrder order) {
+        em.persist(order);
+        return order;
+    }
 
 }

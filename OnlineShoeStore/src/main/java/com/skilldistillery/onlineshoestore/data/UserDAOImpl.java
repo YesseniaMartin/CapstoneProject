@@ -1,7 +1,5 @@
 package com.skilldistillery.onlineshoestore.data;
 
-import java.util.Map;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 

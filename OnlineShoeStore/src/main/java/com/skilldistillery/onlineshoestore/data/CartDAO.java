@@ -45,6 +45,8 @@ public interface CartDAO {
 	Cart findCartByCustomerId(int customerId);  
 	
 	Cart createCart(Cart cart);
+
+	Cart updateCart(Cart cart);
     
     
 

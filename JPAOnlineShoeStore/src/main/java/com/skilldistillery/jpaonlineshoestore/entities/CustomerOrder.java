@@ -26,7 +26,7 @@ public class CustomerOrder {
 	private String confirmationNumber;
 	
 	
-	CustomerOrder(){
+	public CustomerOrder(){
 	}
 
 

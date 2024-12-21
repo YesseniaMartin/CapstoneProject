@@ -68,7 +68,7 @@ public class Cart {
 	}
 
 	public void addInventoryItem(InventoryItem inventoryItem) {
-		if (inventoryItem == null) {
+		if (inventoryItems == null) {
 			inventoryItems = new ArrayList<>();
 		}
 		if (!inventoryItems.contains(inventoryItem) ) {
