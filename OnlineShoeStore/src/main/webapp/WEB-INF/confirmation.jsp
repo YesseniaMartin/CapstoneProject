@@ -57,7 +57,9 @@
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
 					<li class="nav-item"><a class="nav-link" href="home.do">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="cart.do">Cart</a></li>
+					<li class="nav-item"><a class="nav-link" href="cart.do">
+							Cart <span class="badge bg-secondary">${cartCount}</span>
+					</a></li>
 				</ul>
 			</div>
 		</div>
@@ -70,8 +72,8 @@
 	<div class="container mt-5">
 		<h1>Your Shoe Was Successfully Placed!</h1>
 		<p>
-			An email was send with your confirmation order
-			 <a href="home.do">Return to Home</a>
+			An email was send with your confirmation order <a href="home.do">Return
+				to Home</a>
 		</p>
 	</div>
 
