@@ -15,7 +15,7 @@
 .hero {
 	background: url('path/to/your/hero-image.jpg') center center/cover
 		no-repeat;
-	height: 50vh;
+	height: 20vh;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
@@ -59,7 +59,7 @@
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
 					<li class="nav-item"><a class="nav-link" href="home.do">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href=" ">Cart</a></li>
+					<li class="nav-item"><a class="nav-link" href="addToCart.do">Cart</a></li>
 				</ul>
 			</div>
 		</div>
@@ -70,38 +70,43 @@
 	</section>
 
 	<div class="container">
-		<div class="row mb-4">
-			<div class="col text-center">
-				<h2 class="display-6">Options for Everyone</h2>
-				<p class="lead">Shoe collection.</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 col-sm-6 mb-4">
-				<div class="card shadow-sm">
-					<img
-						src="https://www.basspro.com/shop/en/merrell-morphlite-trail-running-shoes-for-men?hvarAID=shopping_googleproductextensions&amp;ds_e=GOOGLE&amp;ds_c=BPS%7CShopping%7CPMax%7CFootwear%7CGeneral%7CNAud%7CNVol%7CNMT&gad_source=1&gclid=CjwKCAiAyJS7BhBiEiwAyS9uNTLWHEf8fhWI4RSYly3EDQJ1w7X-lD4e4oTsZMVKtEtfi0i6Nu2IMRoCCOQQAvD_BwE&gclsrc=aw.ds"
-						alt="${shoe.brand.name} - ${shoe.type.name}" class="img-thumbnail"
-						style="height: 200px; object-fit: cover;">
-					<div class="card-body">
-						<h2>${shoe.brand.name}-${shoe.type.name}</h2>
-						<p>
-							<strong>Price:</strong> ${shoe.price}
-						</p>
-						<p>
-							<strong>Type:</strong> ${shoe.type.name}
-						</p>
-						<form action="addToCart.do" method="post" class="mt-3">
-							<input type="hidden" name="shoeId" value="${shoe.id}">
-							<button type="submit" class="btn btn-primary">Add to
-								Cart</button>
-						</form>
-					</div>
-				</div>
-				<br> <br>
-			</div>
-		</div>
-	</div>
+    <div class="row mb-4">
+        <!-- Left column with shoe detail -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <a
+                    href="https://www.basspro.com/shop/en/merrell-morphlite-trail-running-shoes-for-men?hvarAI[...]EDQJ1w7X-lD4e4oTsZMVKtEtfi0i6Nu2IMRoCCOQQAvD_BwE&gclsrc=aw.ds">
+                    <img
+                        src="https://assets.basspro.com/image/upload/c_limit,dpr_1.0,f_auto,h_881,q_auto,w_1500/c_limit,h_881,w_1500/v1/ProductImages/500/stone_101432442_main?pgw=1"
+                        alt="${shoe.brand.name} " class="img-thumbnail"
+                        style="height: 200px; object-fit: cover;">
+                </a>
+                <div class="card-body">
+                    <h2>Brand - ${shoe.brand.name}</h2>
+                    <p><strong>Price:</strong> ${shoe.price}</p>
+                    <p><strong>Type:</strong> ${shoe.type.name}</p>
+                    <form action="addToCart.do" method="post" class="mt-3">
+                        <input type="hidden" name="shoeId" value="${shoe.id}">
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right column with full-size image -->
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <a
+                    href="https://www.basspro.com/shop/en/merrell-morphlite-trail-running-shoes-for-men?hvarAI[...]EDQJ1w7X-lD4e4oTsZMVKtEtfi0i6Nu2IMRoCCOQQAvD_BwE&gclsrc=aw.ds">
+                    <img
+                        src="https://assets.basspro.com/image/upload/c_limit,dpr_1.0,f_auto,h_881,q_auto,w_1500/c_limit,h_881,w_1500/v1/ProductImages/500/stone_101432442_main?pgw=1"
+                        alt="${shoe.brand.name} - ${shoe.type.name}" 
+                        class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 	<!-- Bootstrap JS -->
 	<script

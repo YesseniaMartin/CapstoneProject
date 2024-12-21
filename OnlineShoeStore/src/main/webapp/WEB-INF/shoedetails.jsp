@@ -16,7 +16,7 @@
 .hero {
 	background: url('path/to/your/hero-image.jpg') center center/cover
 		no-repeat;
-	height: 50vh;
+	height: 20vh;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
