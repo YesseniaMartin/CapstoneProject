@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Confirmation</title>
+<title>Thank you for your order</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -70,8 +70,8 @@
 	<div class="container mt-5">
 		<h1>Your Shoe Was Successfully Placed!</h1>
 		<p>
-			Thank you for adding this shoe to our collection. <a href="home.do">Return
-				to Home</a>
+			An email was send with your confirmation order
+			 <a href="home.do">Return to Home</a>
 		</p>
 	</div>
 
