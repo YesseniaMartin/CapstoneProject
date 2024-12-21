@@ -66,12 +66,14 @@ public class UserController {
 	public String gettingLogin(@RequestParam("username") String username, @RequestParam("password") String password,
 			Model model, HttpSession session) {
 		User findUser = userDAO.findByUsernameAndPassword(username, password);
+		
 		if (findUser == null) {
 			model.addAttribute("errorMessage", "Invalid credentials");
-			addCartCountToModel(session, model);
+
 			return "login";
 		}
 		session.setAttribute("loggedInUser", findUser);
+		
 		return "redirect:home.do";
 	}
 

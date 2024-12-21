@@ -110,5 +110,10 @@ public class CartDAOImpl implements CartDAO {
 
 		return cart;
 	}
+	
+	@Override
+    public Cart updateCart(Cart cart) {
+        return em.merge(cart);
+    }
 
 }

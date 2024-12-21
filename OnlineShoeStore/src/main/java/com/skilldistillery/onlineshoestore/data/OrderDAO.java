@@ -6,4 +6,6 @@ public interface OrderDAO {
 	
 	CustomerOrder findOrderById(int id);
 
+	CustomerOrder addOrder(CustomerOrder order);
+
 }
