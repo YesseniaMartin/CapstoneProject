@@ -95,11 +95,10 @@ public class CartDAOImpl implements CartDAO {
 
 	@Override
 	public Cart findCartByCustomerId(int customerId) {
-		String query = "SELECT c FROM Cart c WHERE c.customer.id = :cid";
+		String query = "SELECT DISTINCT c FROM Cart c " + "JOIN FETCH c.inventoryItems i " + "JOIN FETCH i.shoeId s "
+				+ "WHERE c.customer.id = :cid";
 		Cart cart = null;
-		cart = em.createQuery(query, Cart.class)
-				.setParameter("cid", customerId)
-				.getSingleResult();
+		cart = em.createQuery(query, Cart.class).setParameter("cid", customerId).getSingleResult();
 
 		return cart;
 
@@ -107,10 +106,9 @@ public class CartDAOImpl implements CartDAO {
 
 	@Override
 	public Cart createCart(Cart cart) {
-	    em.persist(cart);
-	    
-	    return cart;
+		em.persist(cart);
+
+		return cart;
 	}
-	
 
 }
