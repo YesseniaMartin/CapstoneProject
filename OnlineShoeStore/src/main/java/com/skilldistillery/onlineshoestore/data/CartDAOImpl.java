@@ -1,5 +1,6 @@
 package com.skilldistillery.onlineshoestore.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -9,6 +10,8 @@ import com.skilldistillery.jpaonlineshoestore.entities.InventoryItem;
 import com.skilldistillery.jpaonlineshoestore.entities.Shoe;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.NonUniqueResultException;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
@@ -79,15 +82,17 @@ public class CartDAOImpl implements CartDAO {
 			return null; // Cart does not exist
 		}
 
-		List<InventoryItem> items = cart.getInventoryItems();
+		// Create a copy of the inventory items to iterate over
+		List<InventoryItem> items = new ArrayList<>(cart.getInventoryItems());
 
-		// Remove each inventory item
+		// Remove each inventory item from the cart and the database
 		for (InventoryItem item : items) {
-			item.removeCart(cart); // Manage both sides of the relationship
-			em.remove(item);
+			cart.removeInventoryItem(item); // Remove from cart's list
+			item.removeCart(cart); // Remove from inventory item's list
+			em.remove(item); // Remove from the database
 		}
 
-		cart.getInventoryItems().clear(); // Clear the list in the cart
+		
 		em.merge(cart); // Update the cart
 
 		return cart;
@@ -95,10 +100,20 @@ public class CartDAOImpl implements CartDAO {
 
 	@Override
 	public Cart findCartByCustomerId(int customerId) {
+		Cart cart;
 		String query = "SELECT DISTINCT c FROM Cart c " + "JOIN FETCH c.inventoryItems i " + "JOIN FETCH i.shoeId s "
 				+ "WHERE c.customer.id = :cid";
-		Cart cart = null;
-		cart = em.createQuery(query, Cart.class).setParameter("cid", customerId).getSingleResult();
+		cart = null;
+		try {
+			cart = em.createQuery(query, Cart.class).setParameter("cid", customerId).getSingleResult();
+		} catch (NoResultException e) {
+			// TODO Auto-generated catch block
+			System.out.println("No cart found for " + customerId);
+			return null;
+			
+		} catch (NonUniqueResultException e){
+			throw new IllegalStateException("Multiple cart found for " + customerId + ", " + e);
+		}
 
 		return cart;
 
@@ -110,10 +125,10 @@ public class CartDAOImpl implements CartDAO {
 
 		return cart;
 	}
-	
+
 	@Override
-    public Cart updateCart(Cart cart) {
-        return em.merge(cart);
-    }
+	public Cart updateCart(Cart cart) {
+		return em.merge(cart);
+	}
 
 }
