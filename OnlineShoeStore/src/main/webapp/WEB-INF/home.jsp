@@ -81,6 +81,43 @@
 			<c:forEach var="shoe" items="${shoes}">
 				<div class="col-md-4 col-sm-6 mb-4">
 					<div class="card shadow-sm">
+					
+					<a href="https://www.basspro.com/shop/en/merrell-morphlite-trail-running-shoes-for-men?hvarAI[...]EDQJ1w7X-lD4e4oTsZMVKtEtfi0i6Nu2IMRoCCOQQAvD_BwE&gclsrc=aw.ds">
+					<img src="https://assets.basspro.com/image/upload/c_limit,dpr_1.0,f_auto,h_881,q_auto,w_1500/c_limit,h_881,w_1500/v1/ProductImages/500/stone_101432442_main?pgw=1" 
+                         alt="${shoe.brand.name} - ${shoe.type.name}" 
+                         class="img-thumbnail" 
+                         style="height: 200px; object-fit: cover;"></a>
+					
+						<div class="card-body">
+							<h5 class="card-title">${shoe.brand.name}</h5>
+							<h5 class="card-title">${shoe.type.name}</h5>
+							<h4 class="card-text">${shoe.price}</h4>
+							<a href="viewDetails.do?shoeId=${shoe.id}"
+								class="btn btn-primary">View Details</a>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+			
+
+			<c:if test="${empty shoes}">
+				<div class="col-12">
+					<div class="alert alert-warning text-center">No shoes
+						available at the moment!</div>
+				</div>
+			</c:if>
+		</div>
+		<div class="row">
+			<c:forEach var="shoe" items="${shoes}">
+				<div class="col-md-4 col-sm-6 mb-4">
+					<div class="card shadow-sm">
+					
+					<a href="https://www.basspro.com/shop/en/merrell-morphlite-trail-running-shoes-for-men?hvarAID=shopping_googleproductextensions&ds_e=GOOGLE&ds_c=BPS%7CShopping%7CPMax%7CFootwear%7CGeneral%7CNAud%7CNVol%7CNMT&gad_source=1&gclid=CjwKCAiAyJS7BhBiEiwAyS9uNTLWHEf8fhWI4RSYly3EDQJ1w7X-lD4e4oTsZMVKtEtfi0i6Nu2IMRoCCOQQAvD_BwE&gclsrc=aw.ds">
+					<img src="https://assets.basspro.com/image/upload/c_limit,dpr_1.0,f_auto,h_860,q_auto,w_1200/c_limit,h_860,w_1200/v1/ProductImages/500/cornflower_101532719_main?pgw=1" 
+                         alt="${shoe.brand.name} - ${shoe.type.name}" 
+                         class="img-thumbnail" 
+                         style="height: 200px; object-fit: cover;"></a>
+					
 						<div class="card-body">
 							<h5 class="card-title">${shoe.brand.name}</h5>
 							<h5 class="card-title">${shoe.type.name}</h5>
