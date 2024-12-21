@@ -24,7 +24,7 @@ public interface CartDAO {
      * @param shoe   The shoe to be removed from the cart.
      * @return true if the shoe was successfully removed, false otherwise.
      */
-    boolean removeShoeFromCart(int cartId, Shoe shoe); 
+    boolean removeShoeFromCart(int cartId, Shoe shoe); //b test
     
     /**
      * Retrieves a cart by its unique ID, including all items in the cart.
