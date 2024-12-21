@@ -50,6 +50,13 @@ public class CartController {
 
 		// Find the cart by customer ID
         Cart cart = cartDAO.findCartByCustomerId(customer.getId());
+        
+	    if (cart == null) {
+	        // If no cart exists yet, create one
+	        cart = new Cart();
+	        cart.setCustomer(customer);
+	        cart = cartDAO.createCart(cart);
+	    }
 
         // Add the customer and cart to the model
         model.addAttribute("customer", customer);

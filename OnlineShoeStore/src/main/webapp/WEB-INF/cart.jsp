@@ -30,7 +30,6 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>Kind</th>
 						<th>Brand</th>
 						<th>Type</th>
 						<th>Price</th>
@@ -39,9 +38,8 @@
 				<tbody>
 					<c:forEach var="item" items="${cart.inventoryItems}">
 						<tr>
-							<td>${item.shoeId.kind.name}</td>
 							<td>${item.shoeId.brand.name}</td>
-							<td>${item.shoeId.type}</td>
+							<td>${item.shoeId.type.name}</td>
 							<td>${item.shoeId.price}</td>
 						</tr>
 					</c:forEach>

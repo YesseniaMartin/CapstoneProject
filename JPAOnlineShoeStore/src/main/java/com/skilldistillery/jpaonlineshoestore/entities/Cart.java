@@ -20,7 +20,7 @@ public class Cart {
 	private int id;
 	
 	@ManyToMany(mappedBy="carts")
-	private List<InventoryItem> inventoryItems;
+	private List<InventoryItem> inventoryItems = new ArrayList<>();
 	
 	@OneToOne
 	@JoinColumn(name="customer_id")
