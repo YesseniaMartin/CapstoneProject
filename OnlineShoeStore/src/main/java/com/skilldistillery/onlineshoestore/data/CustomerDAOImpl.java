@@ -59,6 +59,19 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return customer;
 	}
 
+	@Override
+	public Customer findCustomerByUserId(int userId) {
+		
+		String query = "SELECT c FROM Customer c WHERE c.user.id = :uid";
+	    Customer customer = null;
+		
+	    customer = em.createQuery(query, Customer.class)
+                .setParameter("uid", userId)
+                .getSingleResult();
+	    
+		return customer;
+	}
+
 
 
 

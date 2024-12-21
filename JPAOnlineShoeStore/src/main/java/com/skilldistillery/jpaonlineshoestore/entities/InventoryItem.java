@@ -33,7 +33,7 @@ public class InventoryItem {
 	@JoinTable(name="cart_has_inventory_item", 
 	joinColumns = @JoinColumn(name="inventory_item_id"),
 	inverseJoinColumns = @JoinColumn(name="cart_id"))
-	private List<Cart> carts;
+	private List<Cart> carts = new ArrayList<>();
 
 	public InventoryItem() {}
 
