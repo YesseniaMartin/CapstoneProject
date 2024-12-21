@@ -133,50 +133,57 @@ public class CartController {
 
 	@PostMapping("checkout.do")
 	public String checkout(HttpSession session, Model model) {
-		User loggedInUser = (User) session.getAttribute("loggedInUser");
-		if (loggedInUser == null) {
-			return "redirect:/";
-		}
-
-		Customer customer = custDAO.findCustomerByUserId(loggedInUser.getId());
-		if (customer == null) {
-			return "redirect:home.do";
-		}
-
-		Cart cart = cartDAO.findCartByCustomerId(customer.getId());
-		if (cart == null || cart.getInventoryItems().isEmpty()) {
-			model.addAttribute("errorMessage", "Your cart is empty!");
-			addCartCountToModel(session, model);
-			return "cart";
-		}
-
-		// Create a new CustomerOrder
-		CustomerOrder order = new CustomerOrder();
-		order.setDate(LocalDate.now());
-		order.setConfirmationNumber(generateConfirmationNumber());
-
-		// Associate the order with the cart
-		cart.setOrder(order);
-
 		try {
-			// Persist the CustomerOrder
-			orderDAO.addOrder(order);
-			// Update the Cart to associate with the CustomerOrder
-			cartDAO.updateCart(cart);
+	        // Retrieve the logged-in user
+	        User loggedInUser = (User) session.getAttribute("loggedInUser");
+	        if (loggedInUser == null) {
+	            return "redirect:/"; // Redirect to login if not authenticated
+	        }
 
-		} catch (Exception e) {
-			e.printStackTrace();
-			model.addAttribute("errorMessage", "Failed to process checkout.");
-			addCartCountToModel(session, model);
-			return "cart"; // Return to cart with error message
-		}
+	        // Fetch the associated customer
+	        Customer customer = custDAO.findCustomerByUserId(loggedInUser.getId());
+	        if (customer == null) {
+	            model.addAttribute("errorMessage", "Customer not found.");
+	            return "cart";
+	        }
 
-		// Clear the cart
-		cartDAO.clearCart(cart.getId());
+	        // Retrieve the cart
+	        Cart cart = cartDAO.findCartByCustomerId(customer.getId());
+	        if (cart == null || cart.getInventoryItems().isEmpty()) {
+	            model.addAttribute("errorMessage", "Your cart is empty!");
+	            addCartCountToModel(session, model);
+	            return "cart"; // Return to cart with error message
+	        }
 
-		addCartCountToModel(session, model);
+	        // Create a new CustomerOrder
+	        CustomerOrder order = new CustomerOrder();
+	        order.setDate(LocalDate.now());
+	        order.setConfirmationNumber(generateConfirmationNumber());
 
-		return "redirect:confirmation.do";
+	        // Associate the order with the cart
+	        cart.setOrder(order); // Set the CustomerOrder in Cart
+
+	        // Persist the CustomerOrder via OrderDAO
+	        orderDAO.addOrder(order);
+
+	        // Update the Cart to associate with the CustomerOrder
+	        cartDAO.updateCart(cart); // Merge changes to the cart
+
+	        // Clear the cart
+	        cartDAO.clearCart(cart.getId());
+
+	        // Add cart count (should be 0 after clearing)
+	        addCartCountToModel(session, model);
+
+	        // Redirect to confirmation page
+	        return "redirect:confirmation.do";
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        model.addAttribute("errorMessage", "Failed to process checkout.");
+	        addCartCountToModel(session, model);
+	        return "cart"; // Return to cart with error message
+	    }
 	}
 
 	@PostMapping("deleteCart.do")
